@@ -1,0 +1,9 @@
+{
+    "TEST_I18N_FRONT": "This is an i18n test front, {param1}",
+    "EMAIL_ADDRESS_HINT": "Email address",
+    "FORGOT_PASSWORD": "Forgot your password?",
+    "PASSWORD_HINT": "Password",
+    "REMEMBER_ME": "Remember me",
+    "SIGN_IN": "Sign In",
+    "SIGN_IN_HEADER": "Sign in to your account"
+}

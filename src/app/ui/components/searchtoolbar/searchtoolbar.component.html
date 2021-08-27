@@ -1,0 +1,11 @@
+<div class="flex items-center rounded-full">
+    <form class="w-full flex items-center px-4" (ngSubmit)="sendSearchString()">
+        <input
+            class="border-0 rounded-full w-full py-0 px-1 text-gray-700 leading-tight focus:outline-none focus:ring-0"
+            type="text"
+            placeholder="{{ 'SEARCH_TOOLBAR_COMPONENT_PLACEHOLDER' | translate }}"
+            [formControl]="searchControl"
+        />
+        <img *ngIf="!!searchControl.value" (click)="clear()" class="h-4" src="assets/svgicons/close_black.svg" alt="" />
+    </form>
+</div>

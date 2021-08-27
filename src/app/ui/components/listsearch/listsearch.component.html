@@ -1,0 +1,11 @@
+<form class="w-full" (ngSubmit)="sendSearchString()">
+    <div class="flex items-center border-b border-gray-700 py-2">
+        <input
+            class="appearance-none bg-transparent border-none w-full text-gray-700 py-0 px-0 leading-tight focus:outline-none focus:ring-0"
+            type="text"
+            [placeholder]="'LIST_SEARCH_COMPONENT_PLACEHOLDER' | translate: { entity: entityName }"
+            [formControl]="searchControl"
+        />
+        <img *ngIf="!!searchControl.value" (click)="clear()" class="h-4" src="assets/svgicons/close_black.svg" alt="" />
+    </div>
+</form>

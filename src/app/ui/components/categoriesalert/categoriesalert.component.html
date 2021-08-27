@@ -1,0 +1,57 @@
+<div class="fixed z-10 inset-0">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div (click)="backdropClick()" class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-50"></div>
+        </div>
+
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div
+            class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-full md:w-1/2"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-headline"
+        >
+            <style scoped>
+                @media (min-width: 576px) {
+                    .h-screen-80 {
+                        height: 80vh;
+                    }
+                }
+            </style>
+            <div class="flex flex-col items-center h-96 sm:h-screen-80 h-screen-80">
+                <span class="text-lg text-gray-400 p-4">{{
+                    "CATEGORIES_ALERT_COMPONENT_FILTER_BY_CAT" | translate
+                }}</span>
+                <div class="flex flex-col flex-grow w-full pb-4 overflow-y-auto">
+                    <div
+                        *ngFor="let category of categories"
+                        class="px-4 py-1 not-sticky-hover flex justify-between"
+                        [ngClass]="{ 'bg-indigo-500 text-white': selectedCategories.includes(category) }"
+                        (click)="select(category)"
+                    >
+                        <span>{{ category.name }}</span>
+                        <img
+                            *ngIf="selectedCategories.includes(category)"
+                            class="h-6"
+                            src="assets/svgicons/check.svg"
+                            alt=""
+                        />
+                    </div>
+                </div>
+                <div class="bg-gray-100 flex w-full justify-evenly py-4">
+                    <div
+                        class="rounded-full py-1 w-24 text-center text-white bg-indigo-500 hover:bg-indigo-600"
+                        (click)="filter()"
+                        >{{ "CATEGORIES_ALERT_COMPONENT_FILTER" | translate }}</div
+                    >
+                    <div
+                        class="rounded-full py-1 w-24 text-center text-gray-500 border border-gray-500 hover:bg-gray-500 hover:border-0 hover:text-white"
+                        (click)="reset()"
+                        >{{ "CATEGORIES_ALERT_COMPONENT_RESET" | translate }}</div
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="text-white bg-black flex flex-col">
+    <div *ngIf="!!entity" class="z-10 absolute top-0 right-0" (click)="removeEntity()">
+        <img class="h-8 w-8" src="assets/svgicons/close.svg" alt="" />
+    </div>
+    <div *ngIf="!!entity" class="relative padding-bottom-mediarenderer w-full">
+        <iframe
+            *ngIf="isVideo"
+            class="absolute w-full h-full"
+            [src]="sanitizedUrl"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+
+        <img *ngIf="!isVideo" class="absolute left-0 right-0 m-auto h-full" [src]="sanitizedUrl" alt="" />
+    </div>
+</div>

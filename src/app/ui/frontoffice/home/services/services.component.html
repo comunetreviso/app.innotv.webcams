@@ -1,0 +1,90 @@
+<div class="main-component-h">
+    <div
+        [hidden]="!collapsedService"
+        [ngClass]="{ flex: collapsedService }"
+        class="absolute z-10 w-full md:w-1/2 xl:w-1/4 p-4 md:p-8"
+    >
+        <div
+            style="transition-property: width"
+            class="px-2 py-2 bg-white flex items-center rounded-full transition-width duration-500 ease-out overflow-x-hidden"
+            [ngClass]="{ 'w-full': !collapsedToolbar, 'w-12': collapsedToolbar }"
+        >
+            <div
+                class="hover:bg-gray-100 flex justify-center items-center w-8 h-8 rounded-full"
+                (click)="showHideToolbar()"
+            >
+                <img *ngIf="!collapsedToolbar" src="assets/pngicons/search_off.png" alt="" />
+                <img *ngIf="collapsedToolbar" class="" src="assets/pngicons/search.png" alt="" />
+            </div>
+            <div
+                style="transition-property: width"
+                class="flex flex-grow items-center transition-width duration-500 ease-out"
+                [ngClass]="{ 'w-0': collapsedToolbar }"
+            >
+                <search-toolbar class="flex-grow" (searchChange)="onSearchChange($event)"></search-toolbar>
+                <filter-selector (onFilterSelected)="onFilterChange($event)"></filter-selector>
+            </div>
+        </div>
+    </div>
+    <agm-map
+        class="h-full"
+        [latitude]="latitude"
+        [longitude]="longitude"
+        [zoom]="15"
+        [minZoom]="11"
+        [styles]="mapStyle"
+        [disableDefaultUI]="true"
+        [fitBoundsPadding]="40"
+        (mapClick)="onMapClick()"
+        [clickableIcons]="false"
+        (mapReady)="onMapReady($event)"
+    >
+        <agm-marker
+            *ngFor="let service of services"
+            [iconUrl]="service.icon"
+            [latitude]="service.latitude"
+            [longitude]="service.longitude"
+            [markerClickable]="true"
+            (markerClick)="onMarkerClick(service)"
+        >
+        </agm-marker>
+    </agm-map>
+    <div
+        *ngIf="services.length == 0"
+        class="fixed inset-x-0 bottom-16 z-10 flex w-full md:w-1/2 xl:w-1/4 xl:pt-4 xl:px-4 md:pt-8 md:px-8"
+    >
+        <div class="flex flex-wrap bg-white rounded-t-3xl w-full">
+            <span class="p-4 font-medium text-xl w-full">{{ "NO_SERVICES_FOUND_ERROR" | translate }}</span>
+        </div>
+    </div>
+    <div
+        *ngIf="selectedService"
+        (click)="expandServiceBox()"
+        class="fixed inset-x-0 bottom-16 z-10 flex w-full md:w-1/2 xl:w-1/4 xl:pt-4 xl:px-4 md:pt-8 md:px-8"
+    >
+        <div class="flex flex-wrap bg-white rounded-t-3xl w-full">
+            <span class="p-4 font-medium text-xl w-full">{{ selectedService.name }}</span>
+            <div *ngIf="!collapsedService" class="px-4 pb-4 w-full grid grid-cols-1 gap-4">
+                <div
+                    class="flex justify-evenly rounded-full py-1 w-1/2 text-center text-white bg-indigo-500 hover:bg-indigo-600"
+                    (click)="seeDirections(selectedService)"
+                >
+                    <img class="h-6" src="assets/svgicons/navigation.svg" alt="" />
+                    {{ "SERVICES_COMPONENT_DIRECTIONS" | translate }}
+                </div>
+                <span *ngIf="isNotEmpty(selectedService.openingTime)" class="font-light text-xs leading-3">
+                    {{ ("SERVICES_COMPONENT_OPENING_TIME" | translate | uppercase) + selectedService.openingTime }}
+                </span>
+                <span *ngIf="isNotEmpty(selectedService.address)" class="font-light text-xs leading-3">
+                    {{ ("SERVICES_COMPONENT_ADDRESS" | translate | uppercase) + selectedService.address }}
+                </span>
+                <span *ngIf="isNotEmpty(selectedService.phone)" class="font-light text-xs leading-3">
+                    {{ ("SERVICES_COMPONENT_PHONE" | translate | uppercase) + selectedService.phone }}
+                </span>
+                <span *ngIf="isNotEmpty(selectedService.email)" class="font-light text-xs leading-3">
+                    {{ ("SERVICES_COMPONENT_EMAIL" | translate | uppercase) + selectedService.email }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

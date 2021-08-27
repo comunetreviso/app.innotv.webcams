@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <meta name="description" content="<%= htmlWebpackPlugin.options.metadata.description %>" />
+
+        <style>
+            .logo {
+                width: 80%;
+                height: auto;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+
+            .fading {
+                -webkit-animation: fade 3s 1 linear;
+                animation: fade 3s 1 linear;
+            }
+
+            @keyframes fade {
+                0% {
+                    opacity: 1;
+                }
+                25% {
+                    opacity: 0.75;
+                }
+                50% {
+                    opacity: 0.5;
+                }
+                75% {
+                    opacity: 0.25;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            .allPage {
+                top: 0;
+                left: 0;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #ffffff;
+            }
+        </style>
+        <%= htmlWebpackPlugin.tags.headTags %>
+    </head>
+
+    <body>
+        <app-root>
+            <div class="allPage"></div>
+            <splash-screen>
+                <img class="logo fading" src="assets/pngicons/splash_screen_logo.png" alt="" />
+            </splash-screen>
+        </app-root>
+
+        <!-- Scripts will be injected by webpack here -->
+    </body>
+</html>

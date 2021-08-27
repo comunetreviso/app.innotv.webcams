@@ -1,0 +1,41 @@
+<div class="main-component-h relative overflow-scroll">
+    <div class="flex flex-col w-full absolute">
+        <div
+            class="bg-white sticky top-0 shadow-md"
+            [ngClass]="{ 'flex flex-col h-screen': !collapsed, 'grid grid-cols-1': !selectedVideo || collapsed }"
+        >
+            <media-renderer
+                [ngClass]="{ 'pb-4 sticky sm:relative top-0': !!selectedVideo }"
+                [entity]="selectedVideo"
+                (onEntityRemoved)="removeSelected()"
+            >
+            </media-renderer>
+            <div *ngIf="selectedVideo" class="pb-4 px-4 flex justify-between items-center">
+                <span class="font-medium text-2xl">{{ selectedVideo.title }}</span>
+                <img
+                    (click)="collapse()"
+                    class="h-4"
+                    [src]="collapsed ? 'assets/svgicons/chevron_down.svg' : 'assets/svgicons/close_black.svg'"
+                    alt=""
+                />
+            </div>
+            <span
+                *ngIf="selectedVideo && !collapsed"
+                class="px-4 font-light text-xs leading-3 overflow-y-auto sm:overflow-y-visible"
+                [ngClass]="{ 'pb-4': !collapsed }"
+            >
+                {{ selectedVideo.description }}
+            </span>
+        </div>
+        <div class="flex-grow px-4 py-4 space-y-4 overflow-scroll" [hidden]="selectedVideo && !collapsed">
+            <list-search [hidden]="selectedVideo" [entityName]="'video'" (search)="getVideos($event)"> </list-search>
+            <div *ngFor="let video of videos">
+                <video-card
+                    [video]="video"
+                    [selected]="video === selectedVideo"
+                    (click)="seeIframe(video)"
+                ></video-card>
+            </div>
+        </div>
+    </div>
+</div>

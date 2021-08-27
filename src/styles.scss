@@ -1,0 +1,34 @@
+/* stylelint-disable scss/at-rule-no-unknown */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* You can add global styles to this file, and also import other style files */
+
+@layer base {
+    .primary-color {
+        @apply bg-indigo-600;
+    }
+}
+
+.main-component-h {
+    height: calc((var(--vh, 1vh) * 100) - 8rem);
+}
+
+@media (hover: hover) {
+    .not-sticky-hover:hover {
+        @apply bg-indigo-500;
+        @apply text-white;
+    }
+}
+
+@media (min-width: 768px) {
+    .padding-bottom-mediarenderer {
+        padding-bottom: 42.5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .padding-bottom-mediarenderer {
+        padding-bottom: 56.25%;
+    }
+}

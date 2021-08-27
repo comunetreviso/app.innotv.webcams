@@ -1,0 +1,33 @@
+{
+    "_____SEARCH_TOOLBAR_COMPONENT_____": "",
+
+    "SEARCH_TOOLBAR_COMPONENT_PLACEHOLDER": "Search",
+
+
+    "_____LIST_SEARCH_COMPONENT_____": "",
+
+    "LIST_SEARCH_COMPONENT_PLACEHOLDER": "Search {entity}",
+    "NO_SERVICES_FOUND_ERROR" : "No results from the research",
+
+
+    "_____CATEGORIES_ALERT_COMPONENT_____": "",
+
+    "CATEGORIES_ALERT_COMPONENT_FILTER_BY_CAT": "Filter by Category",
+    "CATEGORIES_ALERT_COMPONENT_FILTER": "Filter",
+    "CATEGORIES_ALERT_COMPONENT_RESET": "Reset",
+
+
+    "_____SERVICES_COMPONENT_____": "",
+
+    "SERVICES_COMPONENT_DIRECTIONS": "Directions",
+    "SERVICES_COMPONENT_OPENING_TIME": "Opening time: ",
+    "SERVICES_COMPONENT_ADDRESS": "Address: ",
+    "SERVICES_COMPONENT_PHONE": "Phone: ",
+    "SERVICES_COMPONENT_EMAIL": "Email: ",
+
+    "SERVICES_ROUTE": "Services",
+    "SERVICES_ROUTE_PUBLIC_UTILITY": "Public utility services",
+    "SERVICES_ROUTE_SHOP": "Shops",
+    "WEBCAMS_ROUTE": "Webcams",
+    "VIDEOS_ROUTE" : "Streaming"
+}

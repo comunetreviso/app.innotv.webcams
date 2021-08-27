@@ -1,0 +1,9 @@
+{
+    "TEST_I18N_FRONT": "Questo è un test i18n front, {param1}",
+    "EMAIL_ADDRESS_HINT": "Indirizzo email",
+    "FORGOT_PASSWORD": "Dimenticata la password?",
+    "PASSWORD_HINT": "Password",
+    "REMEMBER_ME": "Ricordami",
+    "SIGN_IN": "Entra",
+    "SIGN_IN_HEADER": "Entra nel tuo account"
+}

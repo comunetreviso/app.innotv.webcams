@@ -1,0 +1,12 @@
+<div class="rounded-md border border-gray-700">
+    <div class="px-4 pt-1 pb-2 flex flex-col">
+        <span [ngStyle]="{ color: selected ? '#5072fa' : 'currentColor' }" class="font-medium text-2xl">{{
+            video.title
+        }}</span>
+        <span
+            style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2"
+            class="font-light text-xs leading-3 line-clamp-2"
+            >{{ video.description }}</span
+        >
+    </div>
+</div>
